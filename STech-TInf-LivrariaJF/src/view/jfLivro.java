@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import javax.swing.JOptionPane;
@@ -10,10 +5,13 @@ import javax.swing.table.DefaultTableModel;
 import model.Livro;
 import static tlivrariaoojf.TLivrariaOOJF.cadEditoras;
 import static tlivrariaoojf.TLivrariaOOJF.cadLivros;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author jairb
+ * @author aug
  */
 public class jfLivro extends javax.swing.JFrame {
 
@@ -38,15 +36,15 @@ public class jfLivro extends javax.swing.JFrame {
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
         Object rowData[] = new Object[8];//define vetor das colunas
-        for (Livro listLiv : cadLivros.getLivros()) {
-            rowData[0] = listLiv.getIdLivro();
-            rowData[1] = listLiv.getTitulo();
-            rowData[2] = listLiv.getAssunto();
-            rowData[3] = listLiv.getAutor();
-            rowData[4] = listLiv.getIsbn();
-            rowData[5] = listLiv.getEstoque();
-            rowData[6] = listLiv.getPreco();
-            rowData[7] = cadEditoras.getNomeEditora(listLiv.getIdEditora());
+        for (Livro listL : cadLivros.getLivros()) {
+            rowData[0] = listL.getIdLivro();
+            rowData[1] = listL.getTitulo();
+            rowData[2] = listL.getAssunto();
+            rowData[3] = listL.getAutor();
+            rowData[4] = listL.getIsbn();
+            rowData[5] = listL.getEstoque();
+            rowData[6] = listL.getPreco();
+            rowData[7] = cadEditoras.getNomeEditora(listL.getIdEditora());
             model.addRow(rowData);
         }
 
@@ -65,13 +63,13 @@ public class jfLivro extends javax.swing.JFrame {
         jcbEditora = new javax.swing.JComboBox<>();
         jbSalvar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jlbTitulo = new javax.swing.JLabel();
+        jlbAssunto = new javax.swing.JLabel();
+        jlbAutor = new javax.swing.JLabel();
+        jlbISBN = new javax.swing.JLabel();
+        jlbEstoque = new javax.swing.JLabel();
+        jlbPreco = new javax.swing.JLabel();
+        jlbEditora = new javax.swing.JLabel();
         jtfTitulo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtLivros = new javax.swing.JTable();
@@ -96,19 +94,19 @@ public class jfLivro extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cadastro de Livro");
 
-        jLabel1.setText("Titulo Livro");
+        jlbTitulo.setText("Titulo Livro");
 
-        jLabel3.setText("Assunto");
+        jlbAssunto.setText("Assunto");
 
-        jLabel4.setText("Autor");
+        jlbAutor.setText("Autor");
 
-        jLabel5.setText("ISBN");
+        jlbISBN.setText("ISBN");
 
-        jLabel6.setText("Estoque");
+        jlbEstoque.setText("Estoque");
 
-        jLabel7.setText("Preço");
+        jlbPreco.setText("Preço");
 
-        jLabel8.setText("Editora");
+        jlbEditora.setText("Editora");
 
         jtLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,19 +149,19 @@ public class jfLivro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jlbTitulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(jlbAssunto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jtfAssunto))
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
+                            .addComponent(jlbEstoque)
+                            .addComponent(jlbISBN)
+                            .addComponent(jlbAutor))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,14 +169,14 @@ public class jfLivro extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jtfEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel7)
+                                        .addComponent(jlbPreco)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jtfISBN))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
+                                        .addComponent(jlbEditora)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jcbEditora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -198,24 +196,24 @@ public class jfLivro extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jlbTitulo)
                     .addComponent(jtfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
+                    .addComponent(jlbAssunto)
                     .addComponent(jtfAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jlbAutor)
                     .addComponent(jtfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(jlbISBN)
                     .addComponent(jtfISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jlbEditora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(jlbEstoque)
                     .addComponent(jtfEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
+                    .addComponent(jlbPreco)
                     .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbEditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -249,27 +247,36 @@ public class jfLivro extends javax.swing.JFrame {
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         // TODO add your handling code here:
-        Livro liv = new Livro();
+        Livro l = new Livro();
         if (jtfTitulo.getText().isEmpty() && jtfAutor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencher Titulo e Autor!");
         } else {
-            liv.setIdLivro(cadLivros.addIdLiv());
-            liv.setTitulo(jtfTitulo.getText());
-            liv.setAssunto(jtfAssunto.getText());
-            liv.setAutor(jtfAutor.getText());
-            liv.setIsbn(jtfISBN.getText());
-            liv.setEstoque(Integer.parseInt(jtfEstoque.getText()));
-            liv.setPreco(Float.parseFloat(jtfPreco.getText()));
-            liv.setIdEditora(cadEditoras.getIdEditora(jcbEditora.getSelectedItem().toString()));
-            cadLivros.addLivro(liv);
+            l.setIdLivro(cadLivros.addIdLivro());
+            l.setTitulo(jtfTitulo.getText());
+            l.setAssunto(jtfAssunto.getText());
+            l.setAutor(jtfAutor.getText());
+            l.setIsbn(jtfISBN.getText());
+            l.setEstoque(Integer.parseInt(jtfEstoque.getText()));
+            l.setPreco(Float.parseFloat(jtfPreco.getText()));
+            l.setIdEditora(cadEditoras.getIdEditora(jcbEditora.getSelectedItem().toString()));
+            cadLivros.addLivro(l);
             jbLimpar.doClick();
             this.addRowToTable();
-            JOptionPane.showMessageDialog(this, "Livro " + liv.getTitulo() + " cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(this, "Livro " + l.getTitulo() + " cadastrado com sucesso!");
         }
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
         // TODO add your handling code here:
+        jtfTitulo.setText("");
+        jtfAssunto.setText("");
+        jtfAutor.setText("");
+        jtfISBN.setText("");
+        jtfEstoque.setText("");
+        jtfPreco.setText("");
+
+        jbSalvar.setEnabled(true);
+        jbCancelar.setEnabled(false);
     }//GEN-LAST:event_jbLimparActionPerformed
 
     /**
@@ -308,20 +315,20 @@ public class jfLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbLimpar;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JComboBox<String> jcbEditora;
+    private javax.swing.JLabel jlbAssunto;
+    private javax.swing.JLabel jlbAutor;
+    private javax.swing.JLabel jlbEditora;
+    private javax.swing.JLabel jlbEstoque;
+    private javax.swing.JLabel jlbISBN;
+    private javax.swing.JLabel jlbPreco;
+    private javax.swing.JLabel jlbTitulo;
     private javax.swing.JTable jtLivros;
     private javax.swing.JTextField jtfAssunto;
     private javax.swing.JTextField jtfAutor;

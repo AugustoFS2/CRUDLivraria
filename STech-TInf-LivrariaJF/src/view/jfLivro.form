@@ -43,20 +43,20 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlbTitulo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jtfTitulo" min="-2" pref="225" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlbAssunto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jtfAssunto" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlbEstoque" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlbISBN" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlbAutor" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -65,7 +65,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jtfEstoque" pref="79" max="32767" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlbPreco" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jtfPreco" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
@@ -74,7 +74,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlbEditora" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="jcbEditora" max="32767" attributes="0"/>
@@ -103,27 +103,27 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbAssunto" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfAssunto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbAutor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfAutor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbISBN" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfISBN" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbEditora" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbPreco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfPreco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jcbEditora" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -168,37 +168,37 @@
             <Property name="text" type="java.lang.String" value="Cadastro de Livro"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jlbTitulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Titulo Livro"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jlbAssunto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Assunto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="jlbAutor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Autor"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="jlbISBN">
           <Properties>
             <Property name="text" type="java.lang.String" value="ISBN"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="jlbEstoque">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estoque"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="jlbPreco">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="jlbEditora">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editora"/>
           </Properties>
